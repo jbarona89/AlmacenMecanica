@@ -1,0 +1,60 @@
+
+<section class="ae-container-fluid rk-main"></section>
+
+<div class="formularioUsuario">
+  <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+
+
+    <h3>Registro de Usuarios</h3>
+    <div class="form-group">
+      <label>Fecha Ingreso:</label>
+      <input type="date" formControlName="fechaingreso" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Edad:</label>
+      <input type="number" formControlName="edad" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Cargo:</label>
+      <input type="text" formControlName="cargo" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="usuarioForm.invalid">Guardar</button>
+  </form>
+</div>
+
+
+<div class="formularioUsuario">
+  <h2>Lista de Usuarios</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id Usuario</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Fecha Ingreso</th>
+        <th>Fecha Ingreso</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of usuario">
+        <td>{{item.idusuario}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.edad}}</td>
+        <td>{{item.cargo}}</td>
+        <td>{{item.fechaingreso}}</td>
+        <td><button type="button" class="btn btn-success"(click)="Editar(item)">Editar</button></td>
+        <td><button type="button" class="btn btn-danger" (click)="EliminarUsuario(item)">Eliminar</button></td>
+        
+      </tr>  
+    </tbody>
+  </table>
+</div>
+
